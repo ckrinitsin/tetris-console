@@ -1,31 +1,22 @@
 #include <Arduino.h>
 
+#include "game/game_state.h"
 #include "inputs/input.h"
+#include "ui/ui.h"
 
 game::GameState state {};
-ui::UI ui { /* pins */ };
-inputs::Input input { /* pins */ };
+ui::UI screen { 0, 0, 0 }; // TODO: add correct pins
+inputs::Input input { 0, 0, 0, 0, 0, 0, 0 }; // TODO: add correct pins
 
 void setup()
 {
-    state.init();
     input.init();
-    ui.init();
+    screen.init();
 }
 
 void loop()
 {
     delay(1);
-
-    if (input.down_pressed()) {
-        // TODO
-    }
-
-    // update game state
-    // render game state
-
-    // every second
-    // automatically move down
-    // update game state
-    // render game state
+    state.update(input);
+    screen.render_screen(state);
 }
