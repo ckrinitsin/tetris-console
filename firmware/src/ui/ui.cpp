@@ -3,8 +3,8 @@
 
 namespace ui {
 
-UI::UI(int8_t tft_cs, int8_t tft_rst, int8_t tft_dc)
-    : tft { tft_cs, tft_rst, tft_dc }
+UI::UI(int8_t tft_cs, int8_t tft_dc, int8_t tft_rst)
+    : tft { tft_cs, tft_dc, tft_rst }
 {
 }
 
